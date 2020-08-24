@@ -1,0 +1,78 @@
+//
+//  countries.json
+//  Countries
+//
+//  Created by Никита Груздев on 10.08.2020.
+//  Copyright © 2020 Никита Груздев. All rights reserved.
+//
+
+{
+    "countriesList":
+    
+    [
+        
+        {
+            "name" : "Germany",
+            "capital" : "Berlin",
+            "imageName" : "germany"
+        },
+        
+        {
+            "name" : "USA",
+            "capital" : "Washington",
+            "imageName" : "usa"
+        },
+        
+        {
+            "name" : "China",
+            "capital" : "Beijing",
+            "imageName" : "china"
+        },
+        
+        {
+            "name" : "Ireland",
+            "capital" : "Dublin",
+            "imageName" : "ireland"
+        },
+        
+        {
+            "name" : "France",
+            "capital" : "Paris",
+            "imageName" : "france"
+        },
+        
+        {
+            "name" : "Italy",
+            "capital" : "Rome",
+            "imageName" : "italy"
+        },
+        
+        {
+            "name" : "Mexico",
+            "capital" : "Mexico City",
+            "imageName" : "mexico"
+        },
+        
+        {
+            "name" : "Canada",
+            "capital" : "Ottawa",
+            "imageName" : "canada"
+        },
+        
+        {
+            "name" : "Australia",
+            "capital" : "Canberra",
+            "imageName" : "australia"
+        },
+        
+        {
+            "name" : "Albania",
+            "capital" : "Tirana",
+            "imageName" : "albania"
+        }
+        
+    ]
+    
+}
+
+

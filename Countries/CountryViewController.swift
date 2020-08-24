@@ -19,6 +19,9 @@ class CountryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if country?.imageName == nil {
+            return
+        }
         countryLbl.text = country?.name
         capitalLbl.text = country?.capital
         imageView.image = UIImage(named: country!.imageName)

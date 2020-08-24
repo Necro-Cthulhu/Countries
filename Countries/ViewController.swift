@@ -14,7 +14,6 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableViewOutlet: UITableView!
     
-    //
     var nameArray = [String]()
     var capitalArray = [String]()
     var imageNameArray = [String]()
@@ -24,7 +23,6 @@ class ViewController: UIViewController {
         
         if tableViewOutlet == nil {
             return
-            
         }
         
         // метод для парсинга
@@ -55,7 +53,7 @@ class ViewController: UIViewController {
                         imageNameArray.append(imageName as! String)
                     }
                 }
-                
+                    
                 catch let error as NSError
                 {
                     print(error.localizedDescription)
@@ -64,14 +62,6 @@ class ViewController: UIViewController {
             }
         }
         
-        
-        
-        
-        
-        
-        
-        
-    
         super.viewDidLoad()
         tableViewOutlet?.dataSource = self
         tableViewOutlet.delegate = self
@@ -88,8 +78,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: idCell)
         
-    //    let country = count
-        
         cell.textLabel?.text = nameArray[indexPath.row]
         cell.detailTextLabel?.text = capitalArray[indexPath.row]
         cell.imageView?.image = UIImage(named: imageNameArray[indexPath.row])
@@ -102,13 +90,12 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailsController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "detailsController") as! CountryViewController
-    //    detailsController.country = countries[(tableViewOutlet.indexPathForSelectedRow?.row)!]
         navigationController?.pushViewController(detailsController, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
         
     }
 }
- 
+
  
 
 

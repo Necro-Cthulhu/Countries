@@ -20,5 +20,3 @@ class Country {
         self.imageName = imageName
     }
 }
-
-

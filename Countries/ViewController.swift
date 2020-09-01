@@ -14,7 +14,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableViewOutlet: UITableView!
     
-    var countries = [Country]()
+    var nameArray = [String]()
+    var capitalArray = [String]()
+    var imageNameArray = [String]()
     var count = Int()
     
     override func viewDidLoad() {
@@ -37,15 +39,18 @@ class ViewController: UIViewController {
                     let countriesArray = json?.value(forKey: "countriesList") as! NSArray
                     count = countriesArray.count
                     
-                    for arrayData in countriesArray {
-                        
-                        let countryData = arrayData as! [String:Any]
-                        
-                        let country = Country(name: countryData["name"] as? String ?? "",
-                                              capital: countryData["capital"] as? String ?? "",
-                                              imageName: countryData["imageName"] as? String ?? "")
-                        
-                        countries.append(country)
+                    for arrayData in countriesArray
+                    {
+                        let country = arrayData as! [String:Any]
+                        guard let name = country["name"]
+                            else { return }
+                        nameArray.append(name as! String)
+                        guard let capital = country["capital"]
+                            else{ return }
+                        capitalArray.append(capital as! String)
+                        guard let imageName = country["imageName"]
+                            else{ return }
+                        imageNameArray.append(imageName as! String)
                     }
                 }
                     
@@ -73,13 +78,12 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: idCell)
         
-        cell.textLabel?.text = countries[indexPath.row].name
-        cell.detailTextLabel?.text = countries[indexPath.row].capital
-        cell.imageView?.image = UIImage(named: countries[indexPath.row].imageName)
-
+        cell.textLabel?.text = nameArray[indexPath.row]
+        cell.detailTextLabel?.text = capitalArray[indexPath.row]
+        cell.imageView?.image = UIImage(named: imageNameArray[indexPath.row])
+        
         return cell
     }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
     }
